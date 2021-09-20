@@ -7,28 +7,28 @@
 
 
 //globalVariables4Ghost1
-let g1x = 200;
-let g1y = 200;
-let g1w = 20;
-let g1h = 20;
+let g1x = 400;
+let g1y = 400;
+let g1w = 40;
+let g1h = 40;
 let g1Speedx = 4;
 let g1Speedy = 10;
 let hitG1;
 
 //globalVariables4Ghost4
-let g4x = 200;
-let g4y = 200;
-let g4w = 20;
-let g4h = 20;
-let g4Speedx = 4;
-let g4Speedy = 10;
+let g4x = 400;
+let g4y = 400;
+let g4w = 40;
+let g4h = 40;
+let g4Speedx = 2;
+let g4Speedy = 7;
 let hitG4;
 
 //globalVariablesPacman
-let px = 200
-let py = 200
-let pw = 20
-let ph = 20
+let px = 400
+let py = 400
+let pw = 40
+let ph = 40
 let pSpeed = 15
 
 //preloadCharacters
@@ -68,11 +68,11 @@ function draw() {
 // movingGhost1
 function moveGhost1() {
   g1x = g1x + g1Speedx;
-  if (g1x >= width - g1w || g1x <= 0) {
+  if (g1x >= windowWidth - g1w || g1x <= 0) {
     g1Speedx = -g1Speedx;
   }
   g1y = g1y- g1Speedy;
-  if (g1y>= height - g1h || g1y <= 0) {
+  if (g1y>= windowHeight - g1h || g1y <= 0) {
     g1Speedy = -g1Speedy;
   }
 }
@@ -80,11 +80,11 @@ function moveGhost1() {
 // movingGhost4
 function moveGhost4() {
   g4x = g4x + g4Speedx;
-  if (g4x >= width - g4w || g4x <= 0) {
+  if (g4x >= windowWidth - g4w || g4x <= 0) {
     g4Speedx = -g4Speedy
   }
   g4y = g4y- g4Speedy;
-  if (g4y>= height - g4h || g4y <= 0) {
+  if (g4y>= windowHeight - g4h || g4y <= 0) {
     g4Speedy = -g4Speedy
   }
 }
