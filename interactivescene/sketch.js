@@ -11,8 +11,8 @@ let g1x = 400;
 let g1y = 400;
 let g1w = 40;
 let g1h = 40;
-let g1Speedx = 4;
-let g1Speedy = 10;
+let g1Speedx = 7;
+let g1Speedy = 18;
 let hitG1;
 
 //globalVariables4Ghost4
@@ -20,8 +20,8 @@ let g4x = 400;
 let g4y = 400;
 let g4w = 40;
 let g4h = 40;
-let g4Speedx = 2;
-let g4Speedy = 7;
+let g4Speedx = -5;
+let g4Speedy = -14;
 let hitG4;
 
 //globalVariablesPacman
@@ -81,11 +81,11 @@ function moveGhost1() {
 function moveGhost4() {
   g4x = g4x + g4Speedx;
   if (g4x >= windowWidth - g4w || g4x <= 0) {
-    g4Speedx = -g4Speedy
+    g4Speedx = -g4Speedx;
   }
   g4y = g4y- g4Speedy;
   if (g4y>= windowHeight - g4h || g4y <= 0) {
-    g4Speedy = -g4Speedy
+    g4Speedy = -g4Speedy;
   }
 }
 
@@ -135,6 +135,9 @@ function speedDown(){
 function speedControl(){
   if (pSpeed < 0){
     pSpeed = 0
+  }
+  if (pSpeed >15){
+    pSPeed = 15
   }
 }
 
