@@ -7,28 +7,28 @@
 
 
 //globalVariables4Ghost1
-let g1x = 400;
-let g1y = 400;
-let g1w = 40;
-let g1h = 40;
+let g1x;
+let g1y;
+let g1w;
+let g1h;
 let g1Speedx = 7;
 let g1Speedy = 18;
 let hitG1;
 
 //globalVariables4Ghost4
-let g4x = 400;
-let g4y = 400;
-let g4w = 40;
-let g4h = 40;
+let g4x;
+let g4y;
+let g4w;
+let g4h;
 let g4Speedx = -5;
 let g4Speedy = -14;
 let hitG4;
 
 //globalVariablesPacman
-let px = 400
-let py = 400
-let pw = 40
-let ph = 40
+let px;
+let py;
+let pw;
+let ph;
 let pSpeed = 15
 
 //preloadCharacters
@@ -42,7 +42,28 @@ function preload() {
 //setup
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+
+  g1x = width/2
+  g1y = height/2
+
+  g4x = g1x
+  g4y = g1y
+  px = g1x
+  py = g1y
+
+  if (height > width){
+    g1w = width/20
+    g1h = width/20
+  }
+  else{
+    g1w = height/20
+    g1h = height/20
+  }
+
+  g4w = g1w
+  g4h = g1h
+  pw = g1w
+  ph = g1h
 }
 
 //drawTheInteractiveScene
