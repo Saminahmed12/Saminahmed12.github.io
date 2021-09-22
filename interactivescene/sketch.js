@@ -5,6 +5,8 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
+// music
+let bgTheme;
 
 //globalVariables4Ghost1
 let g1x;
@@ -29,18 +31,20 @@ let px;
 let py;
 let pw;
 let ph;
-let pSpeed = 15
+let pSpeed = 15;
 
 //preloadCharacters
 function preload() {
+  bgTheme = loadSound('assets/spider.mp3');
   ghost1 = loadImage('assets/ghost1b.png');
   ghost4 = loadImage('assets/ghost4b.png');
   pm = loadImage('assets/pac.png');
-  pmbg = loadImage('assets/pmbg.jpg')
+  pmbg = loadImage('assets/pmbg.jpg');
 }
 
 //setup
 function setup() {
+  bgTheme.loop();
   createCanvas(windowWidth, windowHeight);
 
   g1x = width/2
@@ -76,7 +80,6 @@ function draw() {
   moveGhost4();
   movePacman();
   speedUp();
-  console.log(pSpeed);
   speedDown();
   speedControl();
 
@@ -132,12 +135,14 @@ function speedUp(){
   if (mouseIsPressed){
     if (mouseX >= g1x && mouseX <= g1x+g1w && mouseY >= g1y && mouseY <= g1y+g1h) {
       pSpeed = pSpeed+10;
+    
     }
     }
 //   ghost 4
   if (mouseIsPressed){
     if (mouseX >= g4x && mouseX <= g4x+g4w && mouseY >= g4y && mouseY <= g4y+g4h) {
       pSpeed = pSpeed+1;
+    
     }
     }
 }
@@ -161,8 +166,6 @@ function speedControl(){
     pSPeed = 15
   }
 }
-
-
   
 
 // Notes/to-do
