@@ -1,12 +1,6 @@
-// Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// terrain
 
 
-let carlsLeftBootyCheeksStinky = 100;
 
 
 function setup() {
@@ -14,7 +8,6 @@ function setup() {
 }
 
 function draw() {
-  backgdound('aqua');
-  rect(mouseX,mouseY,carlsLeftBootyCheeksStinky,100);
+  background(220);
 }
 
