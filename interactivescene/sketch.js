@@ -76,7 +76,7 @@ function setup() {
 
 //drawTheInteractiveScene
 function draw() {
-  if (keyIsDown(80)) {  
+  if (keyIsDown(32)) {  
     bgTheme.loop();
   }
   background(pmbg);
