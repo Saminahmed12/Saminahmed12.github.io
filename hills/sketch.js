@@ -13,6 +13,7 @@ function setup() {
 
 function draw() {
   background('lightblue');
+  noStroke();
   fill('yellow')
   ellipse(100, 100, 100, 100)
   displayTerrain();

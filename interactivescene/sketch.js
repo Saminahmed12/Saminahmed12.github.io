@@ -4,7 +4,7 @@
 
 // Extra for Experts:
 // the canvas resizes to fit your screen (when refreshed)
-// added music, it doesnt work unless you interact the screen while its still loading
+// added music, press spacebar to play.
 // Made custom characters
 
 
