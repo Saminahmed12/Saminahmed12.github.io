@@ -48,9 +48,6 @@ function preload() {
 
 //setup
 function setup() {
-if (mouseIsPressed) {  
-  bgTheme.loop();
-}
 
   createCanvas(windowWidth, windowHeight);
 
@@ -79,7 +76,7 @@ if (mouseIsPressed) {
 
 //drawTheInteractiveScene
 function draw() {
-  if (keyIsDown(32)) {  
+  if (keyIsDown(80)) {  
     bgTheme.loop();
   }
   background(pmbg);
