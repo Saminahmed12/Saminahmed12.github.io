@@ -1,14 +1,18 @@
-// Project Title
-// Your Name
-// Date
-//
+// SpiderPac battle interactive scene
+// Samin Ahmed
+// 9/24/2021
+
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// the canvas resizes to fit your screen (when refreshed)
+// added music, it doesnt work unless you interact the screen while its still loading
+// Made custom characters
+
+
 
 // music
 let bgTheme;
 
-//globalVariables4Ghost1
+//globalVariables4Ghost1(greengoblin design)
 let g1x;
 let g1y;
 let g1w;
@@ -17,7 +21,7 @@ let g1Speedx = 7;
 let g1Speedy = 18;
 let hitG1;
 
-//globalVariables4Ghost4
+//globalVariables4Ghost4(venom design)
 let g4x;
 let g4y;
 let g4w;
@@ -44,7 +48,10 @@ function preload() {
 
 //setup
 function setup() {
+if (mouseIsPressed) {  
   bgTheme.loop();
+}
+
   createCanvas(windowWidth, windowHeight);
 
   g1x = width/2
@@ -72,10 +79,13 @@ function setup() {
 
 //drawTheInteractiveScene
 function draw() {
+  if (keyIsDown(32)) {  
+    bgTheme.loop();
+  }
   background(pmbg);
   image(ghost1 ,g1x,g1y,g1w,g1h);
   image(ghost4 ,g4x,g4y,g4w,g4h);
-  image(pm,px,py,pw,ph)
+  image(pm,px,py,pw,ph);
   moveGhost1();
   moveGhost4();
   movePacman();
@@ -168,10 +178,5 @@ function speedControl(){
 }
   
 
-// Notes/to-do
-
-  // make pacman turn left/right  
-
-  // Make noises everytime ghosts touch pacman, or ghosts is pressed
-
-  // make header (//name // teacher // class //project name)
+ // Notes/to-do               /
+  // checked off everything \/
