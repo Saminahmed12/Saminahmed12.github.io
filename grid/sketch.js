@@ -14,10 +14,10 @@ function setup() {
     createCanvas(windowHeight, windowHeight);
   }
   else{
-    createCanvas(windowWidth,windowWidth)
+    createCanvas(windowWidth,windowWidth);
   }
     
-  grid = mtGrid(gridSize);
+  grid = ranGrid(gridSize);
 }
 
 function draw() {
@@ -36,9 +36,9 @@ function displayGrid(){
       else if(grid[x][y] === 1){
         fill("black");
       }
-      rect(x*cellSize,y*cellSize,cellSize,cellSize)
+      rect(x*cellSize,y*cellSize,cellSize,cellSize);
+    }
   }
-}
 }
 
 
@@ -48,6 +48,22 @@ function mtGrid(howLarge){
     mtArray.push([]);
     for (let x=0; x<howLarge; x++){
       mtArray[y].push(0);
+    }
+  }
+  return mtArray;
+}
+
+function ranGrid(howLarge){
+  let mtArray = [];
+  for (let y=0; y<howLarge; y++){
+    mtArray.push([]);
+    for (let x=0; x<howLarge; x++){
+      if(random(0,100)>50){
+        mtArray[y].push(0);
+      }
+      else{
+        mtArray[y].push(1);
+      }
     }
   }
   return mtArray;
