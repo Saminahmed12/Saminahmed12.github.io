@@ -30,12 +30,12 @@ function displayGrid(){
   let cellSize = width/gridSize;
   for (let y=0; y <grid.length; y++){
     for(let x=0;x<grid[y].length; x++){
-      // if(grid[y][x] === 0){
-      //   fill("white");
-      // } 
-      // else if(grid[x][y] === 1){
-      //   fill("black");
-      // }
+      if(grid[y][x] === 0){
+        fill("white");
+      } 
+      else if(grid[x][y] === 1){
+        fill("black");
+      }
       rect(x*cellSize,y*cellSize,cellSize,cellSize);
     }
   }
