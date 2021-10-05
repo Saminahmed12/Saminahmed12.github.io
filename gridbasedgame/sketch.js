@@ -8,6 +8,8 @@ let gridDemensions = 5;
 let grid;
 let cellSize;
 let mole;
+let spawnSpeed = 2000;
+let emptySlot = [];
 
 function preload(){
   mole = loadImage("assets/mole.png");
@@ -27,6 +29,7 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
+  spawnMoles();
 }
 
 function mousePressed() {
@@ -84,3 +87,13 @@ function createRandomArray(howLarge){
   return newArray;
 }
 
+
+function spawnMoles(){
+  for (let y = 0; y<gridDemensions; y++){
+    for(let x = 0; x< gridDemensions;x++){
+      if (grid [y] [x] === 0){
+        emptySlot.push(x,y);
+      }
+    }
+  }
+}
