@@ -9,7 +9,7 @@ let grid;
 let cellSize;
 let mole;
 let spawnSpeed = 2000;
-let emptySlot = [];
+
 
 function preload(){
   mole = loadImage("assets/mole.png");
@@ -89,11 +89,20 @@ function createRandomArray(howLarge){
 
 
 function spawnMoles(){
-  for (let y = 0; y<gridDemensions; y++){
+  let spawn = 2000;
+  let lastTime = millis() + spawn;
+  let emptySlot = [];
+
+
+  for (let y = 0; y< gridDemensions; y++){
     for(let x = 0; x< gridDemensions;x++){
-      if (grid [y] [x] === 0){
-        emptySlot.push(x,y);
+      if (grid[y][x] === 0){
+        emptySlot.push({x,y});
+        if (millis >= spawn) {
+          random(emptySlot === 1);
+        }
       }
     }
+  
   }
 }
