@@ -9,12 +9,14 @@ let grid;
 let cellSize;
 let mole;
 let spawnSpeed = 2000;
-
-
+let emptySlot;
+let time = 2000;
+let grass;
 function preload(){
   mole = loadImage("assets/mole.png");
+  grass = loadImage("assets/grass.jpg");
 }
-function setup() {
+function setup() { 
   if (windowHeight > windowWidth){
     createCanvas(windowWidth, windowWidth);
   }
@@ -24,12 +26,13 @@ function setup() {
   
   grid = createRandomArray(gridDemensions);
   cellSize = width/gridDemensions;
+  emptySlot = [];
 }
 
 function draw() {
-  background(220);
+  background(grass);
   displayGrid();
-  spawnMoles();
+  spawnMole();
 }
 
 function mousePressed() {
@@ -59,6 +62,7 @@ function displayGrid() {
     for (let x=0; x<gridDemensions; x++) {
       if(grid[y][x] === 0) {
         fill("white");
+        noStroke();
         rect(x*cellSize, y*cellSize, cellSize, cellSize);
       }
       else if(grid[y][x] === 1) {
@@ -88,21 +92,24 @@ function createRandomArray(howLarge){
 }
 
 
-function spawnMoles(){
-  let spawn = 2000;
-  let lastTime = millis() + spawn;
-  let emptySlot = [];
 
 
-  for (let y = 0; y< gridDemensions; y++){
-    for(let x = 0; x< gridDemensions;x++){
-      if (grid[y][x] === 0){
-        emptySlot.push({x,y});
-        if (millis >= spawn) {
-          random(emptySlot === 1);
+function spawnMole(){
+
+  if (millis()> time){
+    for (let y = 0; y< gridDemensions; y++){
+      for(let x = 0; x< gridDemensions;x++){
+        if (grid[y][x] === 0){
+          emptySlot.push({x, y});
         }
       }
     }
-  
+
+    for (let y = 0; y< emptySlot.length;y++){
+      for(let x = 0; x< emptySlot[y].length;x++){
+        swap(random(grid[emptySlot.y][emptySlot.x]));
+        time = millis() + 2000;
+      }
+    }
   }
 }
