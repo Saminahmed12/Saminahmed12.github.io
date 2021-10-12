@@ -8,7 +8,7 @@ let gridDemensions = 5;
 let grid;
 let cellSize;
 let mole;
-let timer = 3;
+let timer = 4;
 // let spawnSpeed = 2000;
 // let emptySlot;
 // let time = 2000;
