@@ -29,7 +29,7 @@ function draw() {
 
 function mousePressed() {
   for (let i = 0; i < 100; i++) {
-    let someParticle = new Particle(mouseX,mouseY);
+    let someParticle = new Particle(width/2,height/2);
     fireworks.push(someParticle);
   }
 }

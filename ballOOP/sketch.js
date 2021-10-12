@@ -73,7 +73,6 @@ class Ball {
       this.theColor = color(random(255),random(255),random(255),random(255));
       otherBall.theColor = color(random(255),random(255),random(255),random(255));
 
-
       // this.dx = otherBall.dx;
       // this.dy = otherBall.dy;
     }

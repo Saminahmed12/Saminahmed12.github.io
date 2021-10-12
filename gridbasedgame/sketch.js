@@ -8,9 +8,10 @@ let gridDemensions = 5;
 let grid;
 let cellSize;
 let mole;
-let spawnSpeed = 2000;
-let emptySlot;
-let time = 2000;
+let timer = 3;
+// let spawnSpeed = 2000;
+// let emptySlot;
+// let time = 2000;
 let grass;
 function preload(){
   mole = loadImage("assets/mole.png");
@@ -26,13 +27,14 @@ function setup() {
   
   grid = createRandomArray(gridDemensions);
   cellSize = width/gridDemensions;
-  emptySlot = [];
+  // emptySlot = [];
 }
 
 function draw() {
   background(grass);
   displayGrid();
-  spawnMole();
+  // spawnMole();
+  gameTimer();
 }
 
 function mousePressed() {
@@ -91,25 +93,37 @@ function createRandomArray(howLarge){
   return newArray;
 }
 
+function gameTimer() {
+  textAlign(CENTER, CENTER);
+  textSize(100);
+  fill("black");
+  text(timer, width/2, height/2);
 
-
-
-function spawnMole(){
-
-  if (millis()> time){
-    for (let y = 0; y< gridDemensions; y++){
-      for(let x = 0; x< gridDemensions;x++){
-        if (grid[y][x] === 0){
-          emptySlot.push({x, y});
-        }
-      }
-    }
-
-    for (let y = 0; y< emptySlot.length;y++){
-      for(let x = 0; x< emptySlot[y].length;x++){
-        swap(random(grid[emptySlot.y][emptySlot.x]));
-        time = millis() + 2000;
-      }
-    }
+  if (frameCount % 60 === 0 && timer > 0) { 
+    timer --;
+  }
+  if (timer === 0) {
+    text("GAME OVER", width/2, height*0.7);
   }
 }
+
+
+// function spawnMole(){
+
+//   if (millis()> time){
+//     for (let y = 0; y< gridDemensions; y++){
+//       for(let x = 0; x< gridDemensions;x++){
+//         if (grid[y][x] === 0){
+//           emptySlot.push({x, y});
+//         }
+//       }
+//     }
+
+//     for (let y = 0; y< emptySlot.length;y++){
+//       for(let x = 0; x< emptySlot[y].length;x++){
+//         swap(random(grid[emptySlot.y][emptySlot.x]));
+//         time = millis() + 2000;
+//       }
+//     }
+//   }
+// }
