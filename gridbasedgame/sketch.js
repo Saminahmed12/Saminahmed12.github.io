@@ -9,10 +9,10 @@ let grid;
 let cellSize;
 let mole;
 let timer = 4;
-// let spawnSpeed = 2000;
-// let emptySlot;
-// let time = 2000;
 let grass;
+
+
+
 function preload(){
   mole = loadImage("assets/mole.png");
   grass = loadImage("assets/grass.jpg");
@@ -27,23 +27,24 @@ function setup() {
   
   grid = createRandomArray(gridDemensions);
   cellSize = width/gridDemensions;
-  // emptySlot = [];
 }
 
 function draw() {
   background(grass);
   displayGrid();
-  // spawnMole();
   gameTimer();
+  
 }
 
 function mousePressed() {
-  if (mouseX <= width && mouseY <= height) {
-    let cellX = Math.floor(mouseX/cellSize);
-    let cellY = Math.floor(mouseY/cellSize);
-    swap(cellX, cellY);
-    
+  if (timer > 0){
+    if (mouseX <= width && mouseY <= height) {
+      let cellX = Math.floor(mouseX/cellSize);
+      let cellY = Math.floor(mouseY/cellSize);
+      swap(cellX, cellY);
+    }
   }
+  
 }
   
 
@@ -97,33 +98,36 @@ function gameTimer() {
   textAlign(CENTER, CENTER);
   textSize(100);
   fill("black");
-  text(timer, width/2, height/2);
-
+  if (timer > 0){
+    text(timer, width/2, height/2);
+  }
+  
   if (frameCount % 60 === 0 && timer > 0) { 
     timer --;
   }
   if (timer === 0) {
-    text("GAME OVER", width/2, height*0.7);
+    if (didYouWin()){
+      text("YOU WIN", width/2, height/2);
+    }
+    else {
+      text("GAME OVER", width/2, height/2); 
+    }
+    
   }
 }
 
 
-// function spawnMole(){
-
-//   if (millis()> time){
-//     for (let y = 0; y< gridDemensions; y++){
-//       for(let x = 0; x< gridDemensions;x++){
-//         if (grid[y][x] === 0){
-//           emptySlot.push({x, y});
-//         }
-//       }
-//     }
-
-//     for (let y = 0; y< emptySlot.length;y++){
-//       for(let x = 0; x< emptySlot[y].length;x++){
-//         swap(random(grid[emptySlot.y][emptySlot.x]));
-//         time = millis() + 2000;
-//       }
-//     }
-//   }
-// }
+function didYouWin(){
+  let counter =0;
+  for (let y=0; y<gridDemensions; y++){
+    for (let x=0; x<gridDemensions; x++){
+      if (grid[y][x] === 1){
+        counter++;
+        
+      }  
+    }
+  }
+  if (counter === 0){
+    return true;
+  }
+}
