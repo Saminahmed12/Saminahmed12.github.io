@@ -4,9 +4,9 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-let gridDemensions = 5;
+let gridDim = 5;
 let grid;
-let cellSize;
+let sqrSize;
 let mole;
 let timer = 4;
 let grass;
@@ -25,8 +25,8 @@ function setup() {
     createCanvas(windowHeight,windowHeight);
   }
   
-  grid = createRandomArray(gridDemensions);
-  cellSize = width/gridDemensions;
+  grid = createRandomArray(gridDim);
+  sqrSize = width/gridDim;
 }
 
 function draw() {
@@ -39,17 +39,17 @@ function draw() {
 function mousePressed() {
   if (timer > 0){
     if (mouseX <= width && mouseY <= height) {
-      let cellX = Math.floor(mouseX/cellSize);
-      let cellY = Math.floor(mouseY/cellSize);
-      swap(cellX, cellY);
+      let sqrX = Math.floor(mouseX/sqrSize);
+      let sqrY = Math.floor(mouseY/sqrSize);
+      
+      swap(sqrX, sqrY);
     }
   }
-  
 }
   
 
 function swap(x, y) {
-  if (x >= 0 && x < gridDemensions && y >= 0 && y < gridDemensions) {
+  if (x >= 0 && x < gridDim && y >= 0 && y < gridDim) {
     if (grid[y][x] === 0) {
       grid[y][x] = 1;
     }
@@ -61,15 +61,15 @@ function swap(x, y) {
 
 
 function displayGrid() {
-  for (let y=0; y<gridDemensions; y++) {
-    for (let x=0; x<gridDemensions; x++) {
+  for (let y=0; y<gridDim; y++) {
+    for (let x=0; x<gridDim; x++) {
       if(grid[y][x] === 0) {
         fill("white");
         noStroke();
-        rect(x*cellSize, y*cellSize, cellSize, cellSize);
+        rect(x*sqrSize, y*sqrSize, sqrSize, sqrSize);
       }
       else if(grid[y][x] === 1) {
-        image(mole,x*cellSize, y*cellSize, cellSize, cellSize);
+        image(mole,x*sqrSize, y*sqrSize, sqrSize, sqrSize);
       }
       
     }
@@ -119,8 +119,8 @@ function gameTimer() {
 
 function didYouWin(){
   let counter =0;
-  for (let y=0; y<gridDemensions; y++){
-    for (let x=0; x<gridDemensions; x++){
+  for (let y=0; y<gridDim; y++){
+    for (let x=0; x<gridDim; x++){
       if (grid[y][x] === 1){
         counter++;
         
@@ -131,3 +131,4 @@ function didYouWin(){
     return true;
   }
 }
+
